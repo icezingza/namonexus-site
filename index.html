@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NamoNexus — Elevate your existence</title>
+  <meta name="description" content="NamoNexus สร้างสรรค์เทคโนโลยีที่มีหัวใจ เพื่อยกระดับคุณภาพชีวิต — ผู้พัฒนา NaMo Care แพลตฟอร์มดูแลสุขภาพผู้สูงอายุ" />
+  <meta property="og:title" content="NamoNexus — Elevate your existence" />
+  <meta property="og:description" content="Compassionate technology that elevates life. Creators of NaMo Care." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.namonexus.com" />
+  <meta name="theme-color" content="#0A0F2C" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A0F2C;
+      --navy-deep: #060918;
+      --cyan: #00E0FF;
+      --magenta: #B44BFF;
+      --brand-gradient: linear-gradient(90deg, #00E0FF, #B44BFF);
+      --cyan-dim: rgba(0, 224, 255, 0.14);
+      --white: #FFFFFF;
+      --grey: #B0B3C1;
+      --card: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(176, 179, 193, 0.16);
+      --cyan-border: rgba(0, 224, 255, 0.28);
+      --glow: 0 0 40px rgba(0, 224, 255, 0.25);
+      --radius: 20px;
+      /* NaMo Care product accent */
+      --saffron: #E67E22;
+      --cream: #FDFBF7;
+      --ink: #2C3E50;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    body {
+      font-family: "Poppins", "Noto Sans Thai", system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    :lang(th) body, [lang="th"] { font-family: "Noto Sans Thai", "Poppins", system-ui, sans-serif; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    ::selection { background: var(--cyan); color: var(--navy); }
+
+    /* ── Nav ─────────────────────────── */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10, 15, 44, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand {
+      display: flex; align-items: center; gap: 11px;
+      font-weight: 700; font-size: 1.18rem; color: var(--white);
+      text-decoration: none; letter-spacing: 0.01em;
+    }
+    .brand svg { width: 34px; height: 34px; }
+    .brand span em { color: var(--cyan); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a.nav-item {
+      color: var(--grey); text-decoration: none; font-weight: 500; font-size: 0.93rem;
+      padding: 4px 2px; border-radius: 8px;
+      transition: color 0.2s ease;
+    }
+    .nav-links a.nav-item:hover, .nav-links a.nav-item:focus-visible { color: var(--cyan); }
+    .nav-links a.nav-item:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+    @media (max-width: 720px) { .nav-links .nav-item { display: none; } }
+    .lang-toggle {
+      display: inline-flex; border: 1px solid var(--cyan-border); border-radius: 999px;
+      overflow: hidden; font-size: 0.83rem; font-weight: 600;
+    }
+    .lang-toggle button {
+      border: 0; background: transparent; color: var(--grey);
+      padding: 6px 14px; cursor: pointer; font: inherit;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .lang-toggle button:hover { color: var(--cyan); background: var(--cyan-dim); }
+    .lang-toggle button:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; }
+    .lang-toggle button.active { background: var(--cyan); color: var(--navy); }
+
+    /* ── Hero ────────────────────────── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 110px 0 120px; text-align: center;
+      background:
+        radial-gradient(55% 70% at 50% -12%, rgba(0, 224, 255, 0.16), transparent 70%),
+        radial-gradient(40% 55% at 90% 12%, rgba(0, 224, 255, 0.07), transparent 70%),
+        radial-gradient(45% 60% at 6% 30%, rgba(90, 60, 255, 0.10), transparent 70%),
+        linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 224, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 224, 255, 0.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(60% 60% at 50% 30%, rgba(0,0,0,0.9), transparent 75%);
+      -webkit-mask-image: radial-gradient(60% 60% at 50% 30%, rgba(0,0,0,0.9), transparent 75%);
+    }
+    .hero > .container { position: relative; z-index: 1; }
+    .hero .mark { width: 86px; height: 86px; margin-bottom: 30px; filter: drop-shadow(0 0 22px rgba(0, 224, 255, 0.45)); animation: float 7s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.22;
+      max-width: 22ch; margin: 0 auto 18px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: var(--brand-gradient);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 22px rgba(0, 224, 255, 0.35));
+    }
+    .hero .slogan {
+      font-weight: 400; font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--cyan); letter-spacing: 0.04em; margin-bottom: 16px;
+    }
+    .hero .slogan::after {
+      content: ""; display: block; width: 220px; height: 2px; margin: 14px auto 0;
+      background: var(--brand-gradient); border-radius: 2px; opacity: 0.85;
+    }
+
+    /* Brand film */
+    .brand-film { padding: 0 0 92px; background: var(--navy-deep); }
+    .film-frame {
+      max-width: 760px; margin: -34px auto 0; position: relative; z-index: 2;
+      border-radius: var(--radius); padding: 3px;
+      background: linear-gradient(135deg, rgba(0,224,255,0.55), rgba(180,75,255,0.55));
+      box-shadow: 0 24px 80px rgba(0, 224, 255, 0.14);
+    }
+    .film-frame video {
+      display: block; width: 100%; border-radius: calc(var(--radius) - 3px);
+      background: var(--navy-deep);
+    }
+    .film-caption { text-align: center; color: var(--grey); font-size: 0.9rem; margin-top: 18px; }
+    .hero p.lede {
+      font-size: clamp(1.02rem, 2vw, 1.2rem); color: var(--grey);
+      max-width: 46ch; margin: 0 auto 42px;
+    }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; padding: 14px 32px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+    .btn:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+    .btn-primary { background: var(--cyan); color: var(--navy); box-shadow: var(--glow); }
+    .btn-primary:hover { background: #66ECFF; transform: translateY(-2px); box-shadow: 0 0 55px rgba(0, 224, 255, 0.4); }
+    .btn-ghost { color: var(--cyan); border: 1.5px solid var(--cyan-border); background: transparent; }
+    .btn-ghost:hover { background: var(--cyan-dim); border-color: var(--cyan); transform: translateY(-2px); }
+
+    /* ── Sections ────────────────────── */
+    section { padding: 88px 0; }
+    .kicker {
+      display: inline-block; color: var(--cyan); background: var(--cyan-dim);
+      border: 1px solid var(--cyan-border);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 999px; margin-bottom: 20px;
+    }
+    h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -0.015em; margin-bottom: 14px; line-height: 1.35; }
+    h2 em { color: var(--cyan); font-style: normal; }
+    .section-head { text-align: center; max-width: 660px; margin: 0 auto 54px; }
+    .section-head p { color: var(--grey); font-size: 1.03rem; }
+
+    /* Vision */
+    .vision { background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%); border-top: 1px solid var(--card-border); }
+    .vision blockquote {
+      max-width: 740px; margin: 0 auto; text-align: center;
+      font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 500; line-height: 1.85;
+    }
+    .vision blockquote em { color: var(--cyan); font-style: normal; }
+    .vision cite { display: block; margin-top: 24px; color: var(--grey); font-style: normal; font-size: 0.93rem; font-weight: 400; }
+
+    /* Products */
+    .product-card {
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: var(--radius); overflow: hidden;
+      max-width: 920px; margin: 0 auto;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .product-card:hover { border-color: var(--cyan-border); box-shadow: 0 0 60px rgba(0, 224, 255, 0.10); }
+    @media (max-width: 760px) { .product-card { grid-template-columns: 1fr; } }
+    .product-body { padding: 46px 42px; }
+    .badge-live {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35);
+      color: #2ECC71; font-weight: 600; font-size: 0.8rem;
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 18px;
+    }
+    .badge-live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2ECC71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.8); }
+    .product-body h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
+    .product-body h3 span { color: var(--saffron); }
+    .product-body > p { color: var(--grey); margin-bottom: 24px; font-size: 0.98rem; }
+    .feature-list { list-style: none; display: grid; gap: 13px; margin-bottom: 32px; }
+    .feature-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #DDE0EA; }
+    .feature-list .fi {
+      flex: none; width: 32px; height: 32px; border-radius: 10px;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-border);
+      display: grid; place-items: center; font-size: 15px;
+    }
+    .btn-product { background: var(--saffron); color: var(--white); box-shadow: 0 10px 34px rgba(230, 126, 34, 0.35); }
+    .btn-product:hover { background: #F08C34; transform: translateY(-2px); }
+    .product-visual {
+      background: linear-gradient(160deg, #F9C486 0%, var(--saffron) 55%, #CA6A15 100%);
+      display: grid; place-items: center; padding: 44px; min-height: 320px;
+    }
+    .phone-mock {
+      width: 205px; background: var(--cream); border-radius: 26px; padding: 16px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+    .phone-mock .pm-row {
+      background: #FFFFFF; border-radius: 14px; padding: 11px 13px;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+      font-size: 0.78rem; font-weight: 600; color: var(--ink);
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    }
+    .phone-mock .pm-row:last-child { margin-bottom: 0; }
+    .pm-sos { background: #FDEDEC !important; color: #C0392B !important; justify-content: center; font-weight: 800; }
+    .more-products { text-align: center; margin-top: 36px; color: var(--grey); font-size: 0.95rem; }
+    .more-products em { color: var(--cyan); font-style: normal; }
+
+    /* Philosophy */
+    .philosophy { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+    .brahma-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    @media (max-width: 900px) { .brahma-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .brahma-grid { grid-template-columns: 1fr; } }
+    .brahma-card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius);
+      padding: 32px 24px; text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .brahma-card:hover { transform: translateY(-5px); border-color: var(--cyan-border); box-shadow: 0 0 44px rgba(0, 224, 255, 0.12); }
+    .brahma-card .glyph { font-size: 2rem; margin-bottom: 14px; }
+    .brahma-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+    .brahma-card .pali { color: var(--cyan); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.03em; margin-bottom: 12px; }
+    .brahma-card p { color: var(--grey); font-size: 0.9rem; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .card {
+      position: relative; overflow: hidden;
+      max-width: 580px; margin: 0 auto; background: var(--card);
+      border: 1px solid var(--cyan-border); border-radius: var(--radius);
+      padding: 54px 36px;
+    }
+    .contact .card::before {
+      content: ""; position: absolute; inset: -40% 20% auto;
+      height: 60%; pointer-events: none;
+      background: radial-gradient(50% 100% at 50% 0%, rgba(0, 224, 255, 0.14), transparent 75%);
+    }
+    .contact .card > * { position: relative; }
+    .contact p { color: var(--grey); margin-bottom: 30px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--card-border); padding: 34px 0; background: var(--navy-deep); }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .foot small { color: var(--grey); font-size: 0.86rem; }
+    .foot .tag { color: var(--cyan); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="NamoNexus home">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <polyline points="8,36 8,12 22,36 22,12" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="26,36 26,12 40,36 40,12" stroke="#00E0FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Namo<em>Nexus</em></span>
+      </a>
+      <nav class="nav-links" aria-label="หลัก">
+        <a class="nav-item" href="#vision" data-i18n="nav_vision">วิสัยทัศน์</a>
+        <a class="nav-item" href="#products" data-i18n="nav_products">ผลิตภัณฑ์</a>
+        <a class="nav-item" href="#philosophy" data-i18n="nav_philosophy">ปรัชญา</a>
+        <a class="nav-item" href="#contact" data-i18n="nav_contact">ติดต่อ</a>
+        <div class="lang-toggle" role="group" aria-label="เลือกภาษา / Language">
+          <button type="button" id="btn-th" onclick="setLang('th')">ไทย</button>
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <polyline points="8,36 8,12 22,36 22,12" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="26,36 26,12 40,36 40,12" stroke="#00E0FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="slogan">Elevate your existence with NamoNexus.</p>
+        <h1 data-i18n-html="hero_title">เทคโนโลยีที่มี<em>หัวใจ</em><br/>เพื่อยกระดับชีวิตของทุกคน</h1>
+        <p class="lede" data-i18n="hero_sub">NamoNexus สร้างสรรค์เทคโนโลยีด้วยความเมตตา — เริ่มต้นจากการดูแลสุขภาพผู้สูงอายุไทยและครอบครัว</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#products" data-i18n="hero_cta1">ดูผลิตภัณฑ์ของเรา</a>
+          <a class="btn btn-ghost" href="#vision" data-i18n="hero_cta2">เรื่องราวของเรา</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand film (auto-hides when the video file is unavailable) -->
+    <section class="brand-film" id="brand-film" aria-label="NamoNexus brand film" hidden>
+      <div class="container">
+        <div class="film-frame">
+          <video src="/brand-video.mp4" autoplay muted loop playsinline controls preload="metadata"
+                 onloadedmetadata="document.getElementById('brand-film').hidden = false"></video>
+        </div>
+        <p class="film-caption" data-i18n="film_caption">NamoNexus — แบรนด์ฟิล์มอย่างเป็นทางการ</p>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <div class="section-head" style="margin-bottom: 34px;">
+          <span class="kicker" data-i18n="vision_kicker">วิสัยทัศน์</span>
+        </div>
+        <blockquote>
+          <span data-i18n-html="vision_quote">"เทคโนโลยีที่ดีที่สุด ไม่ใช่เทคโนโลยีที่ล้ำที่สุด<br/>แต่คือเทคโนโลยีที่<em>เข้าใจมนุษย์</em>ที่สุด"</span>
+          <cite data-i18n="vision_cite">— ปรัชญาการออกแบบของ NamoNexus</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker" data-i18n="products_kicker">ผลิตภัณฑ์</span>
+          <h2 data-i18n-html="products_title">ดูแลคนที่คุณรัก <em>แม้อยู่ไกลกัน</em></h2>
+          <p data-i18n="products_sub">ผลิตภัณฑ์แรกของเรา — แพลตฟอร์มสุขภาพดิจิทัลที่ออกแบบเพื่อผู้สูงอายุไทยโดยเฉพาะ</p>
+        </div>
+        <div class="product-card">
+          <div class="product-body">
+            <span class="badge-live" data-i18n="product_badge">เปิดให้บริการแล้ว</span>
+            <h3>NaMo <span>Care</span></h3>
+            <p data-i18n="product_desc">ผู้ช่วยดูแลสุขภาพกายและใจของผู้สูงอายุ ผ่าน LINE ที่ท่านใช้อยู่แล้ว พร้อมแดชบอร์ดให้ลูกหลานติดตามได้ทุกที่</p>
+            <ul class="feature-list">
+              <li><span class="fi">💬</span><span data-i18n="feat_line">เตือนกินยาและถามไถ่สารทุกข์ทุกวันผ่าน LINE — ไม่ต้องเรียนรู้แอปใหม่</span></li>
+              <li><span class="fi">🆘</span><span data-i18n="feat_sos">ปุ่ม SOS ฉุกเฉิน แจ้งเตือนลูกหลานทันทีพร้อมพิกัด</span></li>
+              <li><span class="fi">📊</span><span data-i18n="feat_dash">แดชบอร์ดสุขภาพสำหรับครอบครัว — ความดัน ชีพจร อารมณ์</span></li>
+              <li><span class="fi">🙏</span><span data-i18n="feat_dharma">กำลังใจจากธรรมะทุกวัน ด้วยหลักพรหมวิหาร 4</span></li>
+            </ul>
+            <a class="btn btn-product" href="https://namocare.app" data-i18n="product_cta">เข้าใช้งาน NaMo Care 🙏</a>
+          </div>
+          <div class="product-visual" aria-hidden="true">
+            <div class="phone-mock">
+              <div class="pm-row">🙏 <span data-i18n="mock_greet">สวัสดีตอนเช้าค่ะ คุณยาย</span></div>
+              <div class="pm-row">💊 <span data-i18n="mock_med">ได้เวลากินยาความดันแล้วนะคะ</span></div>
+              <div class="pm-row">❤️ <span data-i18n="mock_mood">วันนี้รู้สึกอย่างไรบ้างคะ?</span></div>
+              <div class="pm-row pm-sos"><span data-i18n="mock_sos">🆘 ปุ่มฉุกเฉิน</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="more-products" data-i18n-html="products_more">✨ ผลิตภัณฑ์ใหม่จาก <em>NamoNexus</em> กำลังอยู่ระหว่างการพัฒนา — ติดตามได้เร็ว ๆ นี้</p>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy" id="philosophy">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker" data-i18n="phil_kicker">ปรัชญา</span>
+          <h2 data-i18n="phil_title">สร้างบนหลักพรหมวิหาร 4</h2>
+          <p data-i18n="phil_sub">ความเมตตาฝังอยู่ในทุกการตัดสินใจออกแบบ และทุกคำตอบของ AI</p>
+        </div>
+        <div class="brahma-grid">
+          <div class="brahma-card">
+            <div class="glyph">🌸</div>
+            <h3 data-i18n="b1_name">เมตตา</h3>
+            <div class="pali">Metta · Loving-kindness</div>
+            <p data-i18n="b1_desc">ปรารถนาดีต่อผู้ใช้ทุกคน — ทุกข้อความอบอุ่นและเป็นมิตร</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">🤲</div>
+            <h3 data-i18n="b2_name">กรุณา</h3>
+            <div class="pali">Karuna · Compassion</div>
+            <p data-i18n="b2_desc">พร้อมช่วยเหลือในยามทุกข์ — ระบบฉุกเฉินที่ไว้ใจได้เสมอ</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">😊</div>
+            <h3 data-i18n="b3_name">มุทิตา</h3>
+            <div class="pali">Mudita · Sympathetic joy</div>
+            <p data-i18n="b3_desc">ร่วมยินดีในความสุข — เฉลิมฉลองทุกวันที่สดใสไปด้วยกัน</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">🧘</div>
+            <h3 data-i18n="b4_name">อุเบกขา</h3>
+            <div class="pali">Upekkha · Equanimity</div>
+            <p data-i18n="b4_desc">มั่นคงและเป็นกลาง — เทคโนโลยีที่สงบ ไม่รบกวนเกินจำเป็น</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="card">
+          <span class="kicker" data-i18n="contact_kicker">ติดต่อเรา</span>
+          <h2 data-i18n-html="contact_title">มาสร้างเทคโนโลยีที่มีหัวใจ<br/><em>ไปด้วยกัน</em></h2>
+          <p data-i18n="contact_sub">สนใจร่วมงาน เป็นพาร์ทเนอร์ หรือสอบถามเกี่ยวกับผลิตภัณฑ์ของเรา</p>
+          <a class="btn btn-primary" href="mailto:contact@namonexus.com">✉️ contact@namonexus.com</a>
+          <p style="margin: 26px 0 0; font-size: 0.92rem;">
+            <strong style="color: var(--white); font-weight: 600;">Kanin Raksaraj</strong>
+            <span style="color: var(--grey);"> — <span data-i18n="founder_role">ผู้ก่อตั้ง NamoNexus</span></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <small>© 2026 NamoNexus. <span data-i18n="foot_rights">สงวนลิขสิทธิ์</span></small>
+      <small class="tag">Elevate your existence with NamoNexus.</small>
+    </div>
+  </footer>
+
+  <script>
+    const I18N = {
+      en: {
+        nav_vision: "Vision",
+        nav_products: "Products",
+        nav_philosophy: "Philosophy",
+        nav_contact: "Contact",
+        hero_title: 'Technology with a <em>heart</em>,<br/>built to elevate every life',
+        hero_sub: "NamoNexus builds technology with compassion — beginning with digital health care for Thai elders and their families.",
+        hero_cta1: "Explore our products",
+        hero_cta2: "Our story",
+        vision_kicker: "Vision",
+        vision_quote: '"The best technology is not the most advanced —<br/>it is the most <em>deeply human</em>."',
+        vision_cite: "— The NamoNexus design philosophy",
+        products_kicker: "Products",
+        products_title: 'Care for the ones you love, <em>from anywhere</em>',
+        products_sub: "Our first product — a digital health platform designed specifically for Thai elders.",
+        product_badge: "Live",
+        product_desc: "A compassionate companion for elderly health — through LINE they already use, with a family dashboard so loved ones can stay close from anywhere.",
+        feat_line: "Daily medication reminders and check-ins via LINE — no new app to learn",
+        feat_sos: "Emergency SOS button that instantly alerts family with location",
+        feat_dash: "Family health dashboard — blood pressure, heart rate, mood",
+        feat_dharma: "Daily Dharma encouragement, guided by the Four Brahmaviharas",
+        product_cta: "Open NaMo Care 🙏",
+        mock_greet: "Good morning, Grandma 🌅",
+        mock_med: "Time for your blood pressure medicine",
+        mock_mood: "How are you feeling today?",
+        mock_sos: "🆘 Emergency button",
+        products_more: '✨ New products from <em>NamoNexus</em> are in the works — stay tuned',
+        phil_kicker: "Philosophy",
+        phil_title: "Built on the Four Brahmaviharas",
+        phil_sub: "Compassion is embedded in every design decision and every AI response.",
+        b1_name: "Metta",
+        b1_desc: "Goodwill toward every user — every message is warm and friendly",
+        b2_name: "Karuna",
+        b2_desc: "Ready to help in hardship — an emergency system you can always trust",
+        b3_name: "Mudita",
+        b3_desc: "Sharing in joy — celebrating every bright day together",
+        b4_name: "Upekkha",
+        b4_desc: "Steady and balanced — calm technology that never intrudes",
+        contact_kicker: "Contact",
+        contact_title: "Let's build technology with a heart, <em>together</em>",
+        contact_sub: "Interested in partnering, collaborating, or learning about our products?",
+        founder_role: "Founder, NamoNexus",
+        film_caption: "NamoNexus — official brand film",
+        foot_rights: "All rights reserved."
+      }
+    };
+    const TH_DEFAULTS = {};
+    document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(el => {
+      const key = el.dataset.i18n || el.dataset.i18nHtml;
+      TH_DEFAULTS[key] = el.innerHTML;
+    });
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(el => {
+        const key = el.dataset.i18n || el.dataset.i18nHtml;
+        el.innerHTML = lang === "th" ? TH_DEFAULTS[key] : (I18N.en[key] ?? TH_DEFAULTS[key]);
+      });
+      document.getElementById("btn-th").classList.toggle("active", lang === "th");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      try { localStorage.setItem("namonexus_lang", lang); } catch { /* private mode */ }
+    }
+
+    let saved = "th";
+    try { saved = localStorage.getItem("namonexus_lang") || "th"; } catch { /* private mode */ }
+    setLang(saved === "en" ? "en" : "th");
+  </script>
+</body>
+</html>
