@@ -1,0 +1,7 @@
+{
+  "name": "namonexus-site",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html favicon.svg brand-video.mp4 dist/"
+  }
+}
