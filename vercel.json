@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "^/$",
+      "destination": "/teacher/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/teacher/(.*)",
+      "destination": "/teacher/index.html"
+    }
+  ]
+}
