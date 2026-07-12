@@ -104,16 +104,6 @@ export default function BrandWebsite() {
         .brand-website .nav-links { display: flex; gap: 26px; }
         .brand-website .nav-links a { color: var(--grey); text-decoration: none; font-weight: 500; font-size: 0.93rem; }
         .brand-website .nav-links a:hover { color: var(--cyan); }
-
-        .brand-website .access-teacher {
-          background: rgba(0, 224, 255, 0.1);
-          border: 1px solid rgba(0, 224, 255, 0.3);
-          padding: 24px;
-          border-radius: 12px;
-          margin-top: 32px;
-          text-align: center;
-        }
-        .brand-website .access-teacher p { color: var(--grey); margin-bottom: 16px; }
       `}</style>
 
       <header>
@@ -141,7 +131,6 @@ export default function BrandWebsite() {
             </p>
             <div className="cta-row">
               <a className="btn btn-primary" href="#products">ดูผลิตภัณฑ์ของเรา</a>
-              <a className="btn btn-ghost" href="/teacher">เข้าใช้งาน Smart Classroom</a>
             </div>
           </div>
         </section>
@@ -219,11 +208,6 @@ export default function BrandWebsite() {
                 <strong style={{color: 'var(--white)', fontWeight: '600'}}>Kanin Raksaraj</strong>
                 <span style={{color: 'var(--grey)'}}> — ผู้ก่อตั้ง NamoNexus</span>
               </p>
-
-              <div className="access-teacher">
-                <p><strong>สำหรับอาจารย์ / ผู้ใช้งาน Smart Classroom:</strong></p>
-                <a className="btn btn-primary" href="/teacher">เข้าใช้งาน Teacher Dashboard</a>
-              </div>
             </div>
           </div>
         </section>
