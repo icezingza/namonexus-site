@@ -1,13 +1,230 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NamoNexus — Elevate your existence</title>
+  <meta name="description" content="NamoNexus สร้างสรรค์เทคโนโลยีที่มีหัวใจ เพื่อยกระดับคุณภาพชีวิต — ผู้พัฒนา NaMo Care แพลตฟอร์มดูแลสุขภาพผู้สูงอายุ" />
+  <style>
+    :root {
+      --navy: #0A0F2C;
+      --cyan: #00E0FF;
+      --magenta: #B44BFF;
+      --white: #FFFFFF;
+      --grey: #B0B3C1;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", "Noto Sans Thai", system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.7;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10, 15, 44, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(176, 179, 193, 0.16);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; font-size: 1.18rem; text-decoration: none; }
+    .brand span em { color: var(--cyan); font-style: normal; }
+    
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 110px 0 120px; text-align: center;
+      background: linear-gradient(180deg, var(--navy) 0%, #060918 100%);
+    }
+    .hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-weight: 800; margin-bottom: 18px; }
+    .hero .slogan { font-weight: 400; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--cyan); letter-spacing: 0.04em; margin-bottom: 16px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 42px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; padding: 14px 32px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: transform 0.18s ease;
+    }
+    .btn-primary { background: var(--cyan); color: var(--navy); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    
+    section { padding: 88px 0; }
+    h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; margin-bottom: 14px; }
+    
+    .vision { background: linear-gradient(180deg, #060918 0%, var(--navy) 100%); border-top: 1px solid rgba(176, 179, 193, 0.16); }
+    .vision blockquote { max-width: 740px; margin: 0 auto; text-align: center; font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 500; line-height: 1.85; }
+    .vision blockquote em { color: var(--cyan); font-style: normal; }
+    
+    .product-card {
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(176, 179, 193, 0.16);
+      border-radius: 20px; overflow: hidden;
+      max-width: 920px; margin: 0 auto;
+    }
+    @media (max-width: 760px) { .product-card { grid-template-columns: 1fr; } }
+    .product-body { padding: 46px 42px; }
+    .product-body h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
+    .product-body h3 span { color: #E67E22; }
+    .btn-product { background: #E67E22; color: var(--white); margin-top: 24px; }
+    .btn-product:hover { transform: translateY(-2px); }
+    
+    .philosophy { background: linear-gradient(180deg, var(--navy) 0%, #060918 100%); border-top: 1px solid rgba(176, 179, 193, 0.16); }
+    .brahma-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    @media (max-width: 900px) { .brahma-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .brahma-grid { grid-template-columns: 1fr; } }
+    .brahma-card {
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(176, 179, 193, 0.16); border-radius: 20px;
+      padding: 32px 24px; text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .brahma-card:hover { transform: translateY(-5px); }
+    .brahma-card .glyph { font-size: 2rem; margin-bottom: 14px; }
+    .brahma-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+    
+    .contact { text-align: center; }
+    .contact .card {
+      max-width: 580px; margin: 0 auto; background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 224, 255, 0.28); border-radius: 20px;
+      padding: 54px 36px;
+    }
+    
+    footer { border-top: 1px solid rgba(176, 179, 193, 0.16); padding: 34px 0; background: #060918; }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .foot small { color: var(--grey); font-size: 0.86rem; }
+    
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { color: var(--grey); text-decoration: none; font-weight: 500; font-size: 0.93rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    
+    .access-teacher {
+      background: rgba(0, 224, 255, 0.1);
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 32px;
+      text-align: center;
+    }
+    .access-teacher p { color: var(--grey); margin-bottom: 16px; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span>Namo<em>Nexus</em></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#vision">วิสัยทัศน์</a>
+        <a href="#products">ผลิตภัณฑ์</a>
+        <a href="#philosophy">ปรัชญา</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <p class="slogan">Elevate your existence with NamoNexus.</p>
+        <h1>เทคโนโลยีที่มี<em>หัวใจ</em><br/>เพื่อยกระดับชีวิตของทุกคน</h1>
+        <p style="color: var(--grey); font-size: 1.03rem; max-width: 46ch; margin: 0 auto 42px;">NamoNexus สร้างสรรค์เทคโนโลยีด้วยความเมตตา — เริ่มต้นจากการดูแลสุขภาพผู้สูงอายุไทยและครอบครัว</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#products">ดูผลิตภัณฑ์ของเรา</a>
+          <a class="btn btn-primary" href="/teacher" style="background: transparent; border: 1.5px solid var(--cyan); color: var(--cyan);">เข้าใช้งาน Smart Classroom</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 34px;">วิสัยทัศน์</h2>
+        <blockquote>
+          <p>"เทคโนโลยีที่ดีที่สุด ไม่ใช่เทคโนโลยีที่ล้ำที่สุด<br/>แต่คือเทคโนโลยีที่<em>เข้าใจมนุษย์</em>ที่สุด"</p>
+          <cite style="display: block; margin-top: 24px; color: var(--grey); font-style: normal; font-size: 0.93rem; font-weight: 400;">— ปรัชญาการออกแบบของ NamoNexus</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 14px;">ดูแลคนที่คุณรัก <em>แม้อยู่ไกลกัน</em></h2>
+        <p style="text-align: center; color: var(--grey); margin-bottom: 54px;">ผลิตภัณฑ์แรกของเรา — แพลตฟอร์มสุขภาพดิจิทัลที่ออกแบบเพื่อผู้สูงอายุไทยโดยเฉพาะ</p>
+        <div class="product-card">
+          <div class="product-body">
+            <h3>NaMo <span>Care</span></h3>
+            <p style="color: var(--grey);">ผู้ช่วยดูแลสุขภาพกายและใจของผู้สูงอายุ ผ่าน LINE ที่ท่านใช้อยู่แล้ว พร้อมแดชบอร์ดให้ลูกหลานติดตามได้ทุกที่</p>
+            <a class="btn btn-product" href="https://namocare.app" target="_blank">เข้าใช้งาน NaMo Care 🙏</a>
+          </div>
+          <div style="background: linear-gradient(160deg, #F9C486 0%, #E67E22 55%, #CA6A15 100%); display: grid; place-items: center; padding: 44px; min-height: 320px;">
+            <p style="color: #FDFBF7; text-align: center; font-weight: 600;">💙 ผู้ช่วยดูแลสุขภาพ<br/>สำหรับผู้สูงอายุ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy" id="philosophy">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 54px;">สร้างบนหลักพรหมวิหาร 4</h2>
+        <div class="brahma-grid">
+          <div class="brahma-card">
+            <div class="glyph">🌸</div>
+            <h3>เมตตา</h3>
+            <p style="color: var(--grey); font-size: 0.9rem;">ปรารถนาดีต่อผู้ใช้ทุกคน — ทุกข้อความอบอุ่นและเป็นมิตร</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">🤲</div>
+            <h3>กรุณา</h3>
+            <p style="color: var(--grey); font-size: 0.9rem;">พร้อมช่วยเหลือในยามทุกข์ — ระบบฉุกเฉินที่ไว้ใจได้เสมอ</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">😊</div>
+            <h3>มุทิตา</h3>
+            <p style="color: var(--grey); font-size: 0.9rem;">ร่วมยินดีในความสุข — เฉลิมฉลองทุกวันที่สดใสไปด้วยกัน</p>
+          </div>
+          <div class="brahma-card">
+            <div class="glyph">🧘</div>
+            <h3>อุเบกขา</h3>
+            <p style="color: var(--grey); font-size: 0.9rem;">มั่นคงและเป็นกลาง — เทคโนโลยีที่สงบ ไม่รบกวนเกินจำเป็น</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="card">
+          <h2>มาสร้างเทคโนโลยีที่มีหัวใจ<br/><em>ไปด้วยกัน</em></h2>
+          <p style="color: var(--grey); margin: 26px 0;">สนใจร่วมงาน เป็นพาร์ทเนอร์ หรือสอบถามเกี่ยวกับผลิตภัณฑ์ของเรา</p>
+          <a class="btn btn-primary" href="mailto:contact@namonexus.com">✉️ contact@namonexus.com</a>
+          <p style="margin: 26px 0 0; font-size: 0.92rem;">
+            <strong style="color: var(--white); font-weight: 600;">Kanin Raksaraj</strong>
+            <span style="color: var(--grey);"> — ผู้ก่อตั้ง NamoNexus</span>
+          </p>
+          
+          <div class="access-teacher">
+            <p><strong>สำหรับอาจารย์ / ผู้ใช้งาน Smart Classroom:</strong></p>
+            <a class="btn btn-primary" href="/teacher">เข้าใช้งาน Teacher Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <small>© 2026 NamoNexus. สงวนลิขสิทธิ์</small>
+      <small style="color: var(--cyan); font-weight: 500;">Elevate your existence with NamoNexus.</small>
+    </div>
+  </footer>
+</body>
 </html>

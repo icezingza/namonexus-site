@@ -1,15 +1,12 @@
 {
-  "redirects": [
-    {
-      "source": "^/$",
-      "destination": "/teacher/",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
       "source": "/teacher/(.*)",
-      "destination": "/teacher/index.html"
+      "destination": "/teacher.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
