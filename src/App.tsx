@@ -27,11 +27,6 @@ function App() {
     setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('classroom_auth');
-    setIsAuthenticated(false);
-  };
-
   useEffect(() => {
     // Store auth state in localStorage when it changes
     if (isAuthenticated) {
@@ -48,7 +43,7 @@ function App() {
           path="/teacher"
           element={
             <ProtectedRoute
-              element={<TeacherView onLogout={handleLogout} />}
+              element={<TeacherView />}
               isAuthenticated={isAuthenticated}
             />
           }
