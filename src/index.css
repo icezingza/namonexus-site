@@ -33,6 +33,11 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
+  /* NamoNexus brand palette (Projects / Research pages) */
+  --color-navy: #0a0f2c;
+  --color-brand-cyan: #00e0ff;
+  --color-brand-grey: #b0b3c1;
+
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-pulse-cyan: pulse-cyan 2s infinite ease-in-out;
