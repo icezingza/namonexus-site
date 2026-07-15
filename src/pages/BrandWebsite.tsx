@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function BrandWebsite() {
   useEffect(() => {
@@ -128,6 +129,8 @@ export default function BrandWebsite() {
             <span>Namo<em>Nexus</em></span>
           </a>
           <nav className="nav-links">
+            <Link to="/projects">Projects</Link>
+            <Link to="/research">Research</Link>
             <a href="#vision">วิสัยทัศน์</a>
             <a href="#products">ผลิตภัณฑ์</a>
             <a href="#philosophy">ปรัชญา</a>
