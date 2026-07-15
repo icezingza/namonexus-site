@@ -45,6 +45,12 @@ export default function BrandWebsite() {
         .brand-website .hero h1 em { color: var(--cyan); font-style: normal; }
         .brand-website .hero .slogan { font-weight: 400; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--cyan); letter-spacing: 0.04em; margin-bottom: 16px; }
         .brand-website .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 42px; }
+        .brand-website .hero-video {
+          max-width: 720px; margin: 48px auto 0;
+          border-radius: 20px; overflow: hidden;
+          border: 1px solid rgba(176, 179, 193, 0.16);
+        }
+        .brand-website .hero-video video { display: block; width: 100%; height: auto; }
         .brand-website .btn {
           display: inline-flex; align-items: center; gap: 8px;
           border-radius: 999px; padding: 14px 32px;
@@ -142,6 +148,17 @@ export default function BrandWebsite() {
             <div className="cta-row">
               <a className="btn btn-primary" href="#products">ดูผลิตภัณฑ์ของเรา</a>
               <a className="btn btn-ghost" href="/teacher">เข้าใช้งาน Smart Classroom</a>
+            </div>
+            <div className="hero-video">
+              <video
+                src="/brand-video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="NamoNexus brand film"
+              />
             </div>
           </div>
         </section>
