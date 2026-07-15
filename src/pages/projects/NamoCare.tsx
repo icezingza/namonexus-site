@@ -137,7 +137,7 @@ export default function NamoCare() {
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={accuracyData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 224, 255, 0.1)" />
-                <XAxis stroke="#8A8AA0" />
+                <XAxis dataKey="month" stroke="#8A8AA0" />
                 <YAxis stroke="#8A8AA0" />
                 <Tooltip
                   contentStyle={{
@@ -170,7 +170,7 @@ export default function NamoCare() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={latencyData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 224, 255, 0.1)" />
-                <XAxis stroke="#8A8AA0" />
+                <XAxis dataKey="model" stroke="#8A8AA0" />
                 <YAxis stroke="#8A8AA0" />
                 <Tooltip
                   contentStyle={{
