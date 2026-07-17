@@ -268,9 +268,9 @@ export default function BrandWebsite() {
 
           {/* Cycling Massive Typography H1 */}
           <div className="z-10 max-w-6xl mx-auto w-full flex flex-col items-start justify-center flex-grow py-8">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#0A0A0A] leading-[0.85] uppercase">
+            <h1 className="text-[7.5vw] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#0A0A0A] leading-[0.85] uppercase">
               <span className="block opacity-30 font-light">THE NEW</span>
-              <span className="block min-h-[1.1em] relative overflow-hidden">
+              <span className="block min-h-[1.2em] w-full relative overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentPhraseIdx}
