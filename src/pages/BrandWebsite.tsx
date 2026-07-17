@@ -268,9 +268,9 @@ export default function BrandWebsite() {
 
           {/* Cycling Massive Typography H1 */}
           <div className="z-10 max-w-6xl mx-auto w-full flex flex-col items-start justify-center flex-grow py-8">
-            <h1 className="text-[7.5vw] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#0A0A0A] leading-[0.85] uppercase">
+            <h1 className="text-[48px] sm:text-[60px] md:text-[90px] lg:text-[120px] font-black tracking-tighter text-[#0A0A0A] leading-tight md:leading-[0.85] break-words uppercase">
               <span className="block opacity-30 font-light">THE NEW</span>
-              <span className="block min-h-[1.2em] w-full relative overflow-hidden">
+              <span className="block min-h-[2.4em] md:min-h-[1.2em] w-full relative overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentPhraseIdx}
@@ -278,7 +278,7 @@ export default function BrandWebsite() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -80, opacity: 0 }}
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-0 top-0 text-[#0A0A0A]"
+                    className="absolute left-0 top-0 text-[#0A0A0A] w-full break-words"
                   >
                     {phrases[currentPhraseIdx]}
                   </motion.span>
